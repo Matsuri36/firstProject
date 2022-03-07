@@ -48,7 +48,8 @@
   text-align: right;
 }
 .header .navigation .nav_links {
-  font: #191919 12px;
+  font-size: 12px;
+  color: #191919;
   padding-right: 30px;
   text-decoration: none;
   text-transform: uppercase;
