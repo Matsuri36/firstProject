@@ -22,76 +22,171 @@ $loadmore: #8e8e8e
 $bd_gray: #d8d8d8
 $footer: #141414
 
+// html
+// 	overflow-x: hidden
 
 *
-	margin:0
 	font-family: 'Montserrat', sans-serif
+	margin: 0
 
 
 //Head Page
 .head_page
 	height: 100vh
 	width: 100%
-	background: url('../img/white.jpg') bottom / cover no-repeat
 
-.header_content
-	padding: 0px 7%
-
-
-.header
+header
 	display: flex
-	padding-top: 37px
+	width: 100%
+	overflow-x: hidden
+	padding-bottom: 180px 
 	justify-content: space-between
-	margin-bottom: 180px
-	align-items: center
+	position: absolute
+	z-index: 1
 	.logo
-		transition: opacity 0.3s ease-out 0s
+		opacity: .5
+		transition: .5s
+		height: 115px
+		width: 265px
+		background: url('../img/circle_element.png') no-repeat
+		z-index: 2
+		img
+			margin: 30px 0 0 70px
 	.logo:hover
-		opacity: 50%
+		opacity: 1
+	._active_logo
+		opacity: 1
 	.navigation
-		text-align: right
+		display: flex
+		background: url('../img/head_element.png') no-repeat
+		position: absolute
+		width: 1957px
+		height: 90px
+		align-items: center
+		left: -1960px
+		top: -31px
+		opacity: 1
+		transition: 1s
 		.nav_links
 			font-size: 16px
-			color: $black
-			padding-right: 30px
+			color: $black 
+			text-align: center
+			width: 130px
+			padding: 5px 0
+			margin: 25px 20px 0 0
+			border: #fff 1px solid
+			border-radius: 15px
 			text-decoration: none
 			text-transform: uppercase
-			transition: opacity 0.3s ease-out 0s
+			z-index: 1
+			transition: 0.3s
 			&:hover
-				opacity: 50%
+				background-color: #242424
+				color: #fff !important
 			&:visited
-				color: $black
+				color: $black 
 			&:first-child
-				color: $blue
+				color: $blue !important
+				margin-left: 330px
+				&:hover
+					color: $blue
 				&:visited
 					color: $blue
+	._active_navigation
+		left: -70px
 
+.slide_track
+	display: flex
+	width: 300%
+	height: 100vh
+	position: absolute
+	left: 0
+	transition: .7s
 
-.header_section
-	padding-left: 57%
-	h1
-		color: $black
-		font-size: 38px
-	p
-		color: $black
-		font-size: 18px
-		padding-top: 39px
-		padding-bottom: 42px
-	.btn
-		background: $blue
-		padding: 21px 45px
-		font-size: 12px
-		letter-spacing: 1px
-		text-transform: uppercase
-		text-decoration: none
-		color: $white
-		transition: box-shadow 0.3s ease-out 0s
-		&:visited
+.slide_track_wrapper
+	position: relative
+	overflow: hidden
+	width: 100%
+	height: 100vh
+
+.slide_item
+	height: 100%
+	width: 100%
+
+.slide1
+	background: url('../img/white.jpg') bottom / cover no-repeat
+	.slide_section1
+		margin-top: 180px
+		padding-left: 50%
+		h1
+			color: $black
+			font-size: 38px
+		p
+			color: $black
+			font-size: 18px
+			padding-top: 39px
+			padding-bottom: 42px
+			max-width: 450px
+		.btn
+			background: $blue
+			padding: 21px 45px
+			font-size: 12px
+			letter-spacing: 1px
+			text-transform: uppercase
+			text-decoration: none
 			color: $white
-		&:hover
-			box-shadow: 0 0 8px rgba(0,0,0,0.5)
-		&:active
-			background-color: $whiteblue
+			transition: box-shadow 0.3s ease-out 0s
+			&:visited
+				color: $white
+			&:hover
+				box-shadow: 0 0 8px rgba(0,0,0,0.5)
+			&:active
+				background-color: $whiteblue
+
+.slide2
+	background: url('../img/work_place.jpg') bottom / cover no-repeat
+	.slide_section2
+		margin-top: 180px
+		padding-left: 10%
+		h1
+			color: $black
+			font-size: 38px
+		p
+			color: $black
+			font-size: 18px
+			padding-top: 39px
+			padding-bottom: 42px
+			max-width: 600px
+.slide3
+	background: url('../img/ц.jpg') bottom / cover no-repeat
+	.slide_section3
+		margin-top: 180px
+		padding-left: 10%
+		h1
+			color: $black
+			font-size: 38px
+		p
+			color: $black
+			font-size: 20px
+			padding-top: 39px
+			padding-bottom: 42px
+			max-width: 600px
+
+.btn_head_slide
+	position: absolute
+	opacity: 30%
+	transition: opacity 0.3s ease-out 0s
+	&:hover
+		opacity: 100%
+	img
+		width: 50px
+		height: 50px
+	&.btn-prev
+		bottom: 50%
+		left: 2%
+	&.btn-next
+		bottom: 50%
+		right: 2%
 
 
 //About Us
@@ -130,18 +225,23 @@ $footer: #141414
 				color: $black
 				text-transform: uppercase
 				padding: 40px 0 20px 0
-			.UI
+				transform: translate(-75px,0px)
+				opacity: 0
+				background-position: bottom !important
+				background-size: 100% 3px !important
+				transition: all 1s ease-out 0.5s
+			._active_UI
 				background: linear-gradient(to right, $blue 75%, $bd_gray 75%) no-repeat
-				background-position: bottom
-				background-size: 100% 3px
-			.web
+				opacity: 1
+				transform: translate(0px,0px)
+			._active_web
 				background: linear-gradient(to right, $blue 90%, $bd_gray 90%) no-repeat
-				background-position: bottom
-				background-size: 100% 3px
-			.marketing
+				opacity: 1
+				transform: translate(0px,0px)
+			._active_marketing
 				background: linear-gradient(to right, $blue 65%, $bd_gray 65%) no-repeat
-				background-position: bottom
-				background-size: 100% 3px
+				opacity: 1
+				transform: translate(0px,0px)
 	.skills_photo
 		background: url('../img/ц.jpg') center / cover
 		width: 50%
@@ -202,16 +302,6 @@ $footer: #141414
 		text-transform: uppercase
 		display: block
 		padding-top: 46px
-
-
-//3d work
-.three_d_work
-	height: 680px
-	width: 100%
-	background-color: #234
-	iframe
-		height: 680px
-		width: 100%
 
 
 //Work Process
